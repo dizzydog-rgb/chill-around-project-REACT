@@ -7,7 +7,7 @@
   2. 使用`cd`進入到你想要存放專案的資料夾
   3. 使用以下命令進行克隆：
   ```
-  git clone https://github.com/dizzydog-rgb/chill-around-project.git
+  git clone https://github.com/dizzydog-rgb/chill-around-project-REACT.git
   ```
 - 進入專案資料夾：
   ```
@@ -53,7 +53,7 @@
    git init // 初始化網站空間，若已經初始化過就可以不用輸入
    git add . // 把左邊那些檔案都準備加到網站空間
    git commit -m "first comment" // 將本次更新打包，並加上註解
-   git remote add origin https://github.com/dizzydog-rgb/chill-around-project.git // 選定遠端的網站空間名稱
+   git remote add origin https://github.com/dizzydog-rgb/chill-around-project-REACT.git // 選定遠端的網站空間名稱
    git branch -M main // 建立main分支 // 我已經有建立main分支，可以跳過此步驟
    git push -u origin main // 上傳到網站空間的主分支 // 僅限第一次輸入，往後上傳到main只需要輸入 git push
    git push -u origin your-branch-name // 上傳到網站空間的你的分支(your-branch-name) // 僅限第一次輸入，往後上傳到相同分支只需要輸入 git push
