@@ -11,7 +11,7 @@
   ```
 - 進入專案資料夾：
   ```
-  cd chill-around-project
+  cd chill-around-project-REACT
   ```
 - 注意事項: `git clone` 指令只會下載主分支的檔案，若要和自己的分支同步，請參考 第6點 的常用指令 (Other Commands)，透過切換分支以及`git pull`來與目標分支的檔案同步
 
@@ -112,4 +112,4 @@
 - 請確保程式碼有適當的註釋，便於其他組員理解。
 - 使用小駝峰法命名
 - 代碼風格請遵守項目中的 ESLint 或 Prettier 規範。
-- npm run deploy 部署完成後，可以在 https://dizzydog-rgb.github.io/chill-around-project/ 觀看成果
+- npm run deploy 部署完成後，可以在 https://dizzydog-rgb.github.io/chill-around-project-REACT/ 觀看成果
