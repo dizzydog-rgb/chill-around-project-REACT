@@ -13,7 +13,7 @@
   ```
   cd chill-around-project-REACT
   ```
-- 注意事項: `git clone` 指令只會下載主分支的檔案，若要和自己的分支同步，請參考 第6點 的常用指令 (Other Commands)，透過切換分支以及`git pull`來與目標分支的檔案同步
+- 注意事項: `git clone` 指令只會下載主分支的檔案，若要和自己的分支同步，請參考 第 6 點 的常用指令 (Other Commands)，透過切換分支以及`git pull`來與目標分支的檔案同步
 
 ### 2\. 使用 npm 安裝專案依賴 (Install dependencies)
 
@@ -84,18 +84,16 @@
 
 - **拉取最新的變更 (Fetch updates)，開始開發前一定要 pull，才能和 github 上的檔案同步**
 - 若專案有更新，或是在不同的電腦開發，請確保在開始開發之前先拉取最新的變更：
+
   - 拉取當前所在分支的變更前，記得先確認當前所在分支
-  `git branch
+    `git branch
 `
-  - 拉取當前所在分支的變更 (確認完所在分支後，可以使用git pull拉就好)
-  ` git pull
-`
+  - 拉取當前所在分支的變更 (確認完所在分支後，可以使用 git pull 拉就好)
+    `git pull`
   - 拉取主分支的變更
-  ` git pull origin main
-`
+    `git pull origin main`
   - 拉取選定的分支的變更
-  ` git pull origin <branch-name>
-`
+    `git pull origin <branch-name>`
 
 - **檢查分支 (Check branch)**
   -- 隨時可以查看目前所在的分支：
@@ -110,6 +108,8 @@
 ### 7\. 註釋與文件格式 (Code comments and formatting)
 
 - 請確保程式碼有適當的註釋，便於其他組員理解。
-- 使用小駝峰法命名
+- scss 檔案使用小駝峰法命名
+- hooks 使用 use 開頭，並使用小駝峰法命名，如 useApi
+- REACT 的 component 使用大駝峰法命名，如 BuildPlanPage
 - 代碼風格請遵守項目中的 ESLint 或 Prettier 規範。
 - npm run deploy 部署完成後，可以在 https://dizzydog-rgb.github.io/chill-around-project-REACT/ 觀看成果
