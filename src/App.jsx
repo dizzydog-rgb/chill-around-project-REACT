@@ -1,4 +1,5 @@
 import "./App.scss";
+import Counter from "./components/widgets/Counter";
 
 function App() {
   return (
@@ -8,6 +9,7 @@ function App() {
         Primary
       </button>
       <i className="bi bi-6-circle-fill"></i>
+      <Counter />
     </>
   );
 }
