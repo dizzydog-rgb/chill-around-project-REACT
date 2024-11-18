@@ -1,7 +1,16 @@
-// @import "./reset.css";
+@import "./_reset.css";
 
 // 引入所有的Bootstrap的CSS (有用npm安裝)
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 // 引入Bootstrap icon (有用npm安裝)
 @import "bootstrap-icons/font/bootstrap-icons.css";
+
+// // 引入 Swiper
+// @import "../../node_modules/swiper/swiper-bundle.css";
+
+// 資訊搜尋頁header透明
+@import "./layout/searchHeader_trans";
+
+// 首頁相關頁面
+@import "./page/index";
