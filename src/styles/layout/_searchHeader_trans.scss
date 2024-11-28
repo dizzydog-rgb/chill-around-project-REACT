@@ -17,7 +17,7 @@ header{
   
     .nav-link {
       z-index: 999;
-      color: $light;
+      color:white;
       font-size: 18px;
   
       &:hover {
@@ -46,7 +46,7 @@ header{
     font-size: 18px;
 
     &:hover {
-      background-color: $secondary;
+      background-color: #e2ad25;
       color: white;
     }
 
@@ -54,7 +54,21 @@ header{
 
   #welcomeMessage {
     font-size: 20px;
-    color: $primary;
+    color: #4a859f;
   }
+  .bi-plus-circle{
+    color: #4a859f;
+  
+    &:hover {
+  
+      color: white;
+      transition: 0.5s;
+      opacity: 0.8;
+    }
+  
+    
+  }
+  
+
 }
 

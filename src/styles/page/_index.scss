@@ -34,6 +34,11 @@ body {
         width: auto;
         border-color: #fff;
         font-size: 1rem;
+        &:hover{
+            background-color: #4a859f; 
+            transition: 0.6s;
+            opacity: 0.8;
+        }
     }
 
 }
