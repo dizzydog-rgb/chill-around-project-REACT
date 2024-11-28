@@ -1,5 +1,6 @@
-import React, { useState, useEffect } from 'react';
-import LoginModal from './LoginModal';
+import React, { useState, useEffect} from 'react';
+import { Link } from "react-router-dom";
+// import LoginModal from './LoginModal';
 
 const Header = () => {
     const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -21,15 +22,15 @@ const Header = () => {
     };
 
     // Handle logout
-    const handleLogout = () => {
-        if (isLoggedIn && window.confirm('您確定要登出嗎？')) {
-            localStorage.removeItem('token');
-            setIsLoggedIn(false);
-            setToken(null);
-            alert("登出成功!");
-            window.location.href = 'index.html';
-        }
-    };
+    // const handleLogout = () => {
+    //     if (isLoggedIn && window.confirm('您確定要登出嗎？')) {
+    //         localStorage.removeItem('token');
+    //         setIsLoggedIn(false);
+    //         setToken(null);
+    //         alert("登出成功!");
+    //         window.location.href = 'index.html';
+    //     }
+    // };
 
     // Render navigation links based on login status
     const renderNavLinks = () => {
@@ -51,7 +52,7 @@ const Header = () => {
     return (
         <header className="Trans container-fluid p-0">
             <nav className="searchNav navbar navbar-expand-md navbar-light ps-4 pe-4">
-                <a className="navbar-brand" href="index.html">
+                <a className="navbar-brand" href="/">
                     <img src="/public/images/logo/chillAround_logo_01.png" alt="Logo" />
                 </a>
                 <button className="navbar-toggler" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar"
@@ -66,8 +67,12 @@ const Header = () => {
                     </div>
                     <div className="offcanvas-body">
                         <ul className="navbar-nav nav-underline me-auto" style={{ fontSize: '0.8rem' }}>
-                            <li className="nav-item my-2"><a href="index.html" className="nav-link">首頁</a></li>
-                            <li className="nav-item my-2"><a href="schInfo.html" className="nav-link">行程推薦</a></li>
+                            <li className="nav-item my-2">
+                                <Link to="/" className="nav-link">首頁</Link>
+                            </li>
+                            <li className="nav-item my-2">
+                                <Link to="/schInfo"  className="nav-link">行程推薦</Link>
+                            </li>
                             <li className="nav-item my-2"><a href="searchSite.html" className="nav-link">景點推薦</a></li>
                             <li className="nav-item my-2"><a href="test.html" className="nav-link">專屬旅程小測驗</a></li>
                             <li className="nav-item my-2"><a href="foodMap.html" className="nav-link">美食地圖</a></li>
@@ -88,7 +93,7 @@ const Header = () => {
                     </div>
                 </div>
             </nav>
-            {showModal && <LoginModal toggleModal={toggleModal} />}
+            {/* {showModal && <LoginModal toggleModal={toggleModal} />} */}
         </header>
     );
 };
