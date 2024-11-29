@@ -26,7 +26,7 @@ const TagButtons = () => {
         <button
           key={tag.tag_id}
           type="button"
-          className="IndexBtn btn btn-outline-primary btn-sm mx-2 mb-2"
+          className="IndexBtn btn btn-outline btn-sm mx-2 mb-2"
           onClick={() => handleTagClick(tag.tag_id)}
         >
           {tag.tag_name}
