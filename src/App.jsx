@@ -1,8 +1,8 @@
 import "./App.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Index from "./pages/indexPage/index.jsx";
-import SchInfo from "./pages/schInfoPage/schInfo.jsx";
+import Index from "./pages/indexPage/Index.jsx";
+import SchInfo from "./pages/schInfoPage/SchInfo.jsx";
 import BuildPlan from "./pages/BuildPlanPage/BuildPlanPage.jsx";
 import EditPlan from "./pages/EditPlanPage/EditPlanPage.jsx";
 import PlanList from "./pages/PlanListPage/PlanListPage.jsx";
