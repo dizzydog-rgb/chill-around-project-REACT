@@ -6,6 +6,8 @@ import SchInfo from "./pages/schInfoPage/schInfo.jsx";
 import BuildPlan from "./pages/BuildPlanPage/BuildPlanPage.jsx";
 import EditPlan from "./pages/EditPlanPage/EditPlanPage.jsx";
 import PlanList from "./pages/PlanListPage/PlanListPage.jsx";
+import SearchSite from "./pages/SearchSitePage/index.js";
+import SiteInfo from "./pages/SiteInfoPage/SiteInfoPage.jsx";
 
 function App() {
   return (
@@ -17,6 +19,8 @@ function App() {
         <Route path="/bulidPlan" element={<BuildPlan />} />
         <Route path="/editPlan" element={<EditPlan />} />
         <Route path="/planList" element={<PlanList />} />
+        <Route path="/searchSite" element={<SearchSite />} />
+        <Route path="/siteInfo/:id" element={<SiteInfo />} />
       </Routes>
     </Router>
   );
