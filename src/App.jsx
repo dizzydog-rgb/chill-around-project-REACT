@@ -2,6 +2,7 @@ import "./App.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Index from "./pages/indexPage/index.jsx";
+import BudgetPage from "./pages/BudgetPage/BudgetPage.jsx";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Index />} />
       <Route path="*" element={<h1>找不到頁面</h1>} />
+      <Route path="/budget" element={<BudgetPage />} />
     </Routes>
   </Router>
   );
