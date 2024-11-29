@@ -1,7 +1,7 @@
 import React from "react";
 
-function BuildPlan() {
+function EditPlan() {
   return <React.Fragment></React.Fragment>;
 }
 
-export default BuildPlan;
+export default EditPlan;

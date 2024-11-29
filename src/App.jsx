@@ -20,6 +20,21 @@ function App() {
       <Route path="*" element={<h1>找不到頁面</h1>} />
     </Routes>
   </Router>
+import BuildPlan from "./pages/BuildPlanPage/BuildPlanPage.jsx";
+import EditPlan from "./pages/EditPlanPage/EditPlanPage.jsx";
+import PlanList from "./pages/PlanListPage/PlanListPage.jsx";
+
+function App() {
+  return (
+    <Router>
+      <Routes>
+        <Route path="/" element={<Index />} />
+        <Route path="*" element={<h1>找不到頁面</h1>} />
+        <Route path="/bulidPlan" element={<BuildPlan />} />
+        <Route path="/editPlan" element={<EditPlan />} />
+        <Route path="/planList" element={<PlanList />} />
+      </Routes>
+    </Router>
   );
 }
 
