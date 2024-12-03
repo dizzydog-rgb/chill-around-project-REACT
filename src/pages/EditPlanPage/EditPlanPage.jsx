@@ -1,7 +1,11 @@
 import React from "react";
 
 function EditPlan() {
-  return <React.Fragment></React.Fragment>;
+  return (
+    <React.Fragment>
+      <h1>12</h1>
+    </React.Fragment>
+  );
 }
 
 export default EditPlan;

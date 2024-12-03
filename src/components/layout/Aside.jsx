@@ -10,25 +10,25 @@ function Aside() {
       </a>
 
       <ul className="navbar">
-        <a href="planList.html">
+        <a href="PlanList">
           <li>
             <i className="bi bi-journal-bookmark"></i>
             <h4>我的計畫</h4>
           </li>
         </a>
-        <a href="Budget.html">
+        <a href="Budget">
           <li>
             <i className="bi bi-coin"></i>
             <h4>預算清單</h4>
           </li>
         </a>
-        <a href="itemList.html">
+        <a href="itemList">
           <li>
             <i className="bi bi-backpack2"></i>
             <h4>物品清單</h4>
           </li>
         </a>
-        <a href="member_personaldata.html">
+        <a href="member_personaldata">
           <li>
             <i className="bi bi-person-circle"></i>
             <h4>會員中心</h4>
