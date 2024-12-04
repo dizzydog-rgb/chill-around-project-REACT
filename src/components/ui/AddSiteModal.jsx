@@ -1,22 +1,29 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
 
-const AddSiteModal = ({ show, onClose, emailId, token }) => {
+import axios from 'axios';
+// , emailId, token
+const AddSiteModal = ({ show, onClose }) => {
   const [schedules, setSchedules] = useState([]);
   const [selectedSchedule, setSelectedSchedule] = useState(null);
   const [days, setDays] = useState([]);
   const [selectedDay, setSelectedDay] = useState('');
   const [siteData, setSiteData] = useState(null);
 
-  useEffect(() => {
-    if (show && emailId) {
-      fetchSchedules();
-    }
-  }, [show, emailId]);
+  // useEffect(() => {
+  //   if (show && emailId) {
+  //     fetchSchedules();
+  //   }
+  // }, [show, emailId]);
 
-  const fetchSchedules = async () => {
+    useEffect(() => {
+      console.log('Modal 顯示:', show); // 確認 show 屬性值
+      fetchSchedules();
+
+  }, [show]);
+
+  const fetchSchedules = async (data) => {
     try {
-      const { data } = await axios.get(`http://localhost:8080/schInfo/getspot/${emailId}`);
+      // const { data } = await axios.get(`http://localhost:8080/schInfo/getspot/${emailId}`);
       setSchedules(data.schedules);
     } catch (error) {
       console.error('獲取行程資料失敗', error);
@@ -60,51 +67,54 @@ const AddSiteModal = ({ show, onClose, emailId, token }) => {
   };
 
   return (
-    <div className={`modal fade ${show ? 'show' : ''}`} style={{ display: show ? 'block' : 'none' }} tabIndex="-1">
-      <div className="modal-dialog">
-        <div className="modal-content">
-          <div className="modal-header">
-            <h5 className="modal-title">選擇行程</h5>
-            <button type="button" className="btn-close" onClick={onClose}></button>
-          </div>
-          <div className="modal-body">
-            <div className="mb-3">
-              <label htmlFor="itinerarySelect" className="form-label">選擇行程</label>
-              <select className="form-select" id="itinerarySelect" onChange={handleScheduleChange}>
-                <option value="">請選擇行程</option>
-                {schedules.map(schedule => (
-                  <option key={schedule.sch_id} value={schedule.sch_name}>
-                    {schedule.sch_name}
-                  </option>
-                ))}
-              </select>
+    <>
+    <div className={`modal fade ${show ? 'show' : ''}`} tabIndex="-1" style={{ display: show ? 'block' : 'none' }}>
+        <div className="modal-dialog">
+            <div className="modal-content">
+                <div className="modal-header">
+                    <h5 className="modal-title">選擇行程</h5>
+                    <button type="button" className="btn-close" onClick={onClose}></button>
+                </div>
+                <div className="modal-body">
+                    <div className="mb-3">
+                        <label htmlFor="itinerarySelect" className="form-label">選擇行程</label>
+                        <select className="form-select" id="itinerarySelect" onChange={handleScheduleChange}>
+                            <option value="">請選擇行程</option>
+                            {schedules.map(schedule => (
+                                <option key={schedule.sch_id} value={schedule.sch_name}>
+                                    {schedule.sch_name}
+                                </option>
+                            ))}
+                        </select>
+                    </div>
+                    {days.length > 0 && (
+                        <div className="mb-3">
+                            <label htmlFor="daySelect" className="form-label">選擇天數</label>
+                            <select
+                                className="form-select"
+                                id="daySelect"
+                                onChange={(e) => setSelectedDay(e.target.value)}
+                            >
+                                <option value="">請選擇天數</option>
+                                {days.map(day => (
+                                    <option key={day} value={day}>
+                                        第 {day} 天
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+                </div>
+                <div className="modal-footer">
+                    <button type="button" className="btn btn-secondary" onClick={onClose}>關閉</button>
+                    <button type="button" className="btn btn-primary" onClick={handleSave}>保存選擇</button>
+                </div>
             </div>
-            {days.length > 0 && (
-              <div className="mb-3">
-                <label htmlFor="daySelect" className="form-label">選擇天數</label>
-                <select
-                  className="form-select"
-                  id="daySelect"
-                  onChange={(e) => setSelectedDay(e.target.value)}
-                >
-                  <option value="">請選擇天數</option>
-                  {days.map(day => (
-                    <option key={day} value={day}>
-                      第 {day} 天
-                    </option>
-                  ))}
-                </select>
-              </div>
-            )}
-          </div>
-          <div className="modal-footer">
-            <button type="button" className="btn btn-secondary" onClick={onClose}>關閉</button>
-            <button type="button" className="btn btn-primary" onClick={handleSave}>保存選擇</button>
-          </div>
         </div>
-      </div>
     </div>
-  );
+    </>
+);
+
 };
 
 export default AddSiteModal;

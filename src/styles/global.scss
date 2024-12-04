@@ -1,13 +1,15 @@
 @import "./_reset.css";
 
+// 引入自訂顏色變數
+@import "./variables";
+
 // 引入所有的Bootstrap的CSS (有用npm安裝)
 @import "../../node_modules/bootstrap/scss/bootstrap";
 
 // 引入Bootstrap icon (有用npm安裝)
 @import "bootstrap-icons/font/bootstrap-icons.css";
 
-// 引入自訂顏色變數
-@import "./variables";
+
 
 // // 引入 Swiper
 // @import "../../node_modules/swiper/swiper-bundle.css";

@@ -72,3 +72,19 @@ header{
 
 }
 
+
+.offcanvas-body.light-theme ul .nav-link  {
+   
+      color:$danger;// 白底時用黑字
+      &:hover {
+        color: $success;
+        opacity: 0.8;
+      } 
+
+}
+
+// .dark-theme {
+//   .nav-link, #loginBtn, #logoutBtn, .bi-plus-circle {
+//       color: white !important; // 深底時用白字
+//   }
+// }
