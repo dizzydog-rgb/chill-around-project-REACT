@@ -16,8 +16,8 @@ function App() {
     <Router>
       <Routes>
         <Route path="/" element={<Index />} />
-        <Route path="/schInfo" element={<SchInfo/>} />
         <Route path="*" element={<h1>找不到頁面</h1>} />
+        <Route path="/schInfo" element={<SchInfo />} />
         <Route path="/bulidPlan" element={<BuildPlan />} />
         <Route path="/editPlan" element={<EditPlan />} />
         <Route path="/planList" element={<PlanList />} />
