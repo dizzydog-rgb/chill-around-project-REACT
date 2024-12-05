@@ -1,5 +1,5 @@
 import React from "react";
-import Header from "../../components/layout/searchHeader_trans";
+import Header from "../../components/layout/SearchHeader_trans";
 import SwiperCarousel from "./components/SwiperCarousel";
 import TagButtons from "./components/TagButtons";
 
