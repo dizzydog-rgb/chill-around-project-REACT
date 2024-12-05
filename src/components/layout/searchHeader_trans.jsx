@@ -73,9 +73,13 @@ const Header = () => {
                             <li className="nav-item my-2">
                                 <Link to="/schInfo"  className="nav-link">行程推薦</Link>
                             </li>
-                            <li className="nav-item my-2"><a href="searchSite.html" className="nav-link">景點推薦</a></li>
+                            <li className="nav-item my-2">
+                                <Link to="/searchSite" className="nav-link">景點推薦</Link>
+                            </li>
                             <li className="nav-item my-2"><a href="test.html" className="nav-link">專屬旅程小測驗</a></li>
-                            <li className="nav-item my-2"><a href="foodMap.html" className="nav-link">美食地圖</a></li>
+                            <li className="nav-item my-2">
+                                <Link to="/foodMap" className="nav-link">美食地圖</Link>
+                            </li>
                             {renderNavLinks()}
                         </ul>
                         <ul id="searchNavBtn" className="navbar-nav d-flex align-items-center">

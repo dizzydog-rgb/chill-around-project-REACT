@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
+import { Link } from "react-router-dom";
 
 import Header from "../../components/layout/searchHeader_trans";
 import SearchBar from "./components/SearchBar";
@@ -62,7 +63,7 @@ function SearchSite(){
                 </div>
             </div>
             <div className="p-5 d-flex justify-content-center">
-                <a href="/chill-around-project/pages/allSite.html" id="moreBtn" className="btn btn-secondary">更多景點推薦</a>
+                <Link to="/allSite" id="moreBtn" className="btn btn-secondary">更多景點推薦</Link>
             </div>
             {/*美食推薦title */}
             <div className="foodTitle py-5">
