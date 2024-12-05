@@ -6,8 +6,10 @@ import SchInfo from "./pages/schInfoPage/SchInfo.jsx";
 import BuildPlan from "./pages/BuildPlanPage/BuildPlanPage.jsx";
 import EditPlan from "./pages/EditPlanPage/EditPlanPage.jsx";
 import PlanList from "./pages/PlanListPage/PlanListPage.jsx";
-import SearchSite from "./pages/SearchSitePage/index.js";
+import SearchSite from "./pages/SearchSitePage/SearchSitePage.jsx";
 import SiteInfo from "./pages/SiteInfoPage/SiteInfoPage.jsx";
+import AllSite from "./pages/allSitePage/AllSitePage.jsx";
+import FoodMap from "./pages/FoodMapPage/FoodMapPage.jsx";
 
 function App() {
   return (
@@ -21,6 +23,8 @@ function App() {
         <Route path="/planList" element={<PlanList />} />
         <Route path="/searchSite" element={<SearchSite />} />
         <Route path="/siteInfo/:id" element={<SiteInfo />} />
+        <Route path="/allSite" element={<AllSite />} />
+        <Route path="/foodMap" element={<FoodMap />} />
       </Routes>
     </Router>
   );
