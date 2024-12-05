@@ -1,7 +1,11 @@
 import "./App.scss";
 import React, { Component } from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Index from "./pages/indexPage/Index.jsx";
+import Index from "./pages/indexPage/index.jsx";
+import BudgetPage from "./pages/BudgetPage/BudgetPage.jsx";
+import PopupBudgetPage from "./pages/PopupBudgetPage/PopupBudgetPage.jsx";
+import ItemListPage from "./pages/ItemListPage/ItemListPage.jsx";
+import PopupItemListPage from "./pages/PopupItemListPage/PopupItemListPage.jsx";
 import SchInfo from "./pages/schInfoPage/SchInfo.jsx";
 import BuildPlan from "./pages/BuildPlanPage/BuildPlanPage.jsx";
 import EditPlan from "./pages/EditPlanPage/EditPlanPage.jsx";
@@ -21,6 +25,10 @@ function App() {
         <Route path="/planList" element={<PlanList />} />
         <Route path="/searchSite" element={<SearchSite />} />
         <Route path="/siteInfo/:id" element={<SiteInfo />} />
+        <Route path="/budget" element={<BudgetPage />} />
+        <Route path="/popupbudget" element={<PopupBudgetPage />} />
+        <Route path="/itemlist" element={<ItemListPage />} />
+        <Route path="/popupitemlist" element={<PopupItemListPage />} />
       </Routes>
     </Router>
   );
