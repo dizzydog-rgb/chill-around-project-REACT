@@ -1,7 +1,7 @@
 function Aside() {
   return (
     <aside className="planAside">
-      <a href="index.html" className="logo">
+      <a href="/" className="logo">
         <img
           className="p-2"
           src="images/logo/chillAround_logo_01.png"

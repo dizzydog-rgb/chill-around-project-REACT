@@ -1,131 +1,85 @@
-import React from "react";
+import React, { useRef, useState } from "react";
+import {
+  GoogleMap,
+  LoadScript,
+  StandaloneSearchBox,
+  Marker,
+} from "@react-google-maps/api";
+
+const libraries = ["places"];
 
 function MapDisplay() {
-  async function init() {
-    await customElements.whenDefined("gmp-map");
+  const searchBoxRef = useRef(null);
+  const mapRef = useRef(null);
+  const [markerPosition, setMarkerPosition] = useState(null);
 
-    const map = document.querySelector("gmp-map");
-    const marker = document.querySelector("gmp-advanced-marker");
-    const placePicker = document.querySelector("gmpx-place-picker");
-    // const infowindow = new google.maps.InfoWindow();
+  const handlePlacesChanged = () => {
+    const places = searchBoxRef.current.getPlaces();
+    if (places.length > 0 && places[0].geometry) {
+      const place = places[0];
+      console.log("搜尋的地點:", place);
 
-    map.innerMap.setOptions({
-      mapTypeControl: false,
-    });
-
-    placePicker.addEventListener("gmpx-placechange", handlePlaceChange);
-
-    function handlePlaceChange() {
-      const place = placePicker.value.formattedAddress;
-
-      // 使用 Places Service 進行搜索
-      const service = new google.maps.places.PlacesService(map.innerMap);
-      service.textSearch({ query: place }, (results, status) => {
-        if (
-          status === google.maps.places.PlacesServiceStatus.OK &&
-          results.length > 0
-        ) {
-          const place = results[0];
-
-          if (placePicker.setInputValue) {
-            placePicker.setInputValue(place.name);
-          }
-
-          updateMap(place);
-        }
-      });
-    }
-
-    function updateMap(place) {
-      if (place.geometry.viewport) {
-        map.innerMap.fitBounds(place.geometry.viewport);
+      if (mapRef.current) {
+        mapRef.current.panTo(place.geometry.location);
+        mapRef.current.setZoom(15);
+        setMarkerPosition(place.geometry.location);
+        console.log("移動到:", place.geometry.location);
       } else {
-        map.center = place.geometry.location;
-        map.zoom = 17;
+        console.error("地圖尚未初始化");
       }
-
-      marker.position = place.geometry.location;
-      // infowindow.setContent(
-      //   `<strong style="font-size: 26px; color: #4A859F">${place.name}</strong>`
-      // );
-      // infowindow.open(map.innerMap, marker);
     }
-  }
-
-  document.addEventListener("DOMContentLoaded", init);
-  async function init() {
-    await customElements.whenDefined("gmp-map");
-
-    const map = document.querySelector("gmp-map");
-    const marker = document.querySelector("gmp-advanced-marker");
-    const placePicker = document.querySelector("gmpx-place-picker");
-    // const infowindow = new google.maps.InfoWindow();
-
-    map.innerMap.setOptions({
-      mapTypeControl: false,
-    });
-
-    placePicker.addEventListener("gmpx-placechange", handlePlaceChange);
-
-    function handlePlaceChange() {
-      const place = placePicker.value.formattedAddress;
-
-      // 使用 Places Service 進行搜索
-      const service = new google.maps.places.PlacesService(map.innerMap);
-      service.textSearch({ query: place }, (results, status) => {
-        if (
-          status === google.maps.places.PlacesServiceStatus.OK &&
-          results.length > 0
-        ) {
-          const place = results[0];
-
-          if (placePicker.setInputValue) {
-            placePicker.setInputValue(place.name);
-          }
-
-          updateMap(place);
-        }
-      });
-    }
-
-    function updateMap(place) {
-      if (place.geometry.viewport) {
-        map.innerMap.fitBounds(place.geometry.viewport);
-      } else {
-        map.center = place.geometry.location;
-        map.zoom = 17;
-      }
-
-      marker.position = place.geometry.location;
-      // infowindow.setContent(
-      //   `<strong style="font-size: 26px; color: #4A859F">${place.name}</strong>`
-      // );
-      // infowindow.open(map.innerMap, marker);
-    }
-  }
-
-  document.addEventListener("DOMContentLoaded", init);
+  };
 
   return (
     <React.Fragment>
       <div className="d-none d-md-block col-md-5 p-0 mapArea">
-        <gmpx-api-loader
-          key="AIzaSyCgVtNCe6n8nTdXm-zFidK0uF8kVnzvO2Q"
-          solution-channel="GMP_GE_mapsandplacesautocomplete_v1"
-        ></gmpx-api-loader>
-        <gmp-map
-          center="23.75163737835299, 120.95520524708053"
-          zoom="8"
-          map-id="DEMO_MAP_ID"
+        <LoadScript
+          googleMapsApiKey="AIzaSyCgVtNCe6n8nTdXm-zFidK0uF8kVnzvO2Q"
+          libraries={libraries}
         >
-          <div
-            slot="control-block-start-inline-start"
-            className="place-picker-container"
+          <GoogleMap
+            mapContainerStyle={{
+              width: "100%",
+              height: "100%",
+            }}
+            center={{ lat: 23.75163737835299, lng: 120.95520524708053 }}
+            zoom={7.8}
+            options={{
+              mapTypeControl: false, // 隱藏衛星檢視按鈕
+              streetViewControl: false, // 隱藏街景按鈕
+              fullscreenControl: false, // 隱藏全螢幕按鈕
+            }}
+            onLoad={(map) => (mapRef.current = map)}
           >
-            <gmpx-place-picker placeholder="你想去哪玩?"></gmpx-place-picker>
-          </div>
-          <gmp-advanced-marker></gmp-advanced-marker>
-        </gmp-map>
+            <StandaloneSearchBox
+              onLoad={(ref) => (searchBoxRef.current = ref)}
+              onPlacesChanged={handlePlacesChanged}
+            >
+              <input
+                type="text"
+                placeholder="你想去哪玩?"
+                style={{
+                  boxSizing: `border-box`,
+                  border: `1px solid transparent`,
+                  width: `300px`,
+                  height: `40px`,
+                  padding: `0 12px`,
+                  borderRadius: `3px`,
+                  boxShadow: `0 2px 6px rgba(0, 0, 0, 0.3)`,
+                  fontSize: `16px`,
+                  outline: `none`,
+                  textOverflow: `ellipses`,
+                  position: "absolute",
+                  left: "50%",
+                  marginLeft: "-150px",
+                  marginTop: "10px",
+                }}
+              />
+            </StandaloneSearchBox>
+
+            {markerPosition && <Marker position={markerPosition} />}
+          </GoogleMap>
+        </LoadScript>
       </div>
     </React.Fragment>
   );
